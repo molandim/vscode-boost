@@ -1,0 +1,41 @@
+{
+  "Test helpers": {
+    "prefix": "writetest",
+    "body": [
+      "describe('${TM_FILENAME_BASE}', () => {",
+      "",
+      "  it('Should ${2:}', () => {",
+      "    ${3:}",
+      "    expect().toBe()",
+      "  });",
+      "});"
+    ]
+  },
+
+  "Console log": {
+    "prefix": "cl",
+    "body": ["console.log('  ${0}');"]
+  },
+
+  "Console log objects": {
+    "prefix": "lo",
+    "body": ["console.log(JSON.stringify(${0}));"]
+  },
+  "import mocked": {
+    "prefix": "importmocked",
+    "body": ["import { mocked } from 'ts-jest/utils';"]
+  },
+  "Mock path by import selection": {
+    "prefix": "Mock path",
+    "body": [
+      "${TM_SELECTED_TEXT}",
+      "jest.mock(${TM_SELECTED_TEXT/(.+?(?='))('.*')(.*$)/$2/});"
+    ]
+  },
+  "Created mocked const": {
+    "prefix": "Mock module",
+    "body": [
+      "const mocked${TM_SELECTED_TEXT/(^.)(.*)/${1:/upcase}$2/} = mocked(${TM_SELECTED_TEXT});"
+    ]
+  }
+}

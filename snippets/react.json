@@ -1,0 +1,7 @@
+{
+  "Add data automation id": {
+    "prefix": "data-automation",
+    "body": ["data-automation-id={'${1:example}'}"],
+    "description": "Add data automation id"
+  }
+}
